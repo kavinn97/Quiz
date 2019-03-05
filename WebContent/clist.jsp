@@ -9,20 +9,23 @@
 </head>
 <style>
 body {
-background-image: url('pic.png');
-background-size: 100%;
-background-repeat: repeat-y;
-background-attachment: fixed;
-height: 100%;
-width: 105%;
+	background-image: url('pic.png');
+	background-size: 100%;
+	background-repeat: repeat-y;
+	background-attachment: fixed;
+	height: 100%;
+	width: 105%;
 }
 </style>
 <body>
-<div align="center">
-	<a href="LogoutServlet">Logout</a>
+	<div align="center">
+		<a href="LogoutServlet">Logout</a>
 	</div>
 	<form action="ResultServlet" method="post">
+		<input type="hidden" id="cname" name="cname" value="c">
+
 		<table>
+
 			<c:forEach var="showquestions" items="${C}">
 				<tr>
 					<td>${showquestions.questions}</td>
@@ -33,7 +36,8 @@ width: 105%;
 				</tr>
 			</c:forEach>
 		</table>
-		<button type="submit" style="background-color:lightblue; color:black;">GetResult</button>
+		<button type="submit"
+			style="background-color: lightblue; color: black;">GetResult</button>
 	</form>
 
 </body>

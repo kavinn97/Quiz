@@ -22,6 +22,7 @@ width: 105%;
 	<a href="LogoutServlet">Logout</a>
 	</div>
 	<form action="ResultServlet" method="post">
+	<input type="hidden" id="cname" name="cname" value="html">
 		<table>
 			<c:forEach var="showquestions" items="${html}">
 				<tr>
