@@ -1,0 +1,31 @@
+create table members(
+name varchar2(32) not null,
+age number,
+gender varchar2(23),
+email varchar2(32) not null,
+password varchar2(23) not null,
+constraint PK_email primary key (email)
+);
+
+CREATE table c(quenum number,questions varchar(1000),option1 varchar2(100),option2 varchar2(100),answer varchar2(100));
+Insert into c(quenum,questions,option1,option2,answer) values (1,'Is C is an Object Oriented Programming Language?','yes','no','b');
+Insert into c(quenum,questions,option1,option2,answer) values (2,'Is C is a Platform dependent?','yes','no','a');
+Insert into c(quenum,questions,option1,option2,answer) values (3,'Is any other language contains Pointers in it?','yes','no','b');
+Insert into c(quenum,questions,option1,option2,answer) values (4,'Which header file is used for mathematical calculations?','math.h','conio.h','a');
+Insert into c(quenum,questions,option1,option2,answer) values (5,'Is & is used to grt values to string?','yes','no','b');
+
+CREATE table java(quenum number,questions varchar(1000),option1 varchar2(100),option2 varchar2(100),answer varchar2(100));
+Insert into java(quenum,questions,option1,option2,answer) values (1,'Which class cannot be subclassed (or extended) in java?','Abstract class','final class','b');
+Insert into java(quenum,questions,option1,option2,answer) values (2,'Can we declare abstract static method?','yes','no','b');
+Insert into java(quenum,questions,option1,option2,answer) values (3,'Can we access private class outside the package?','yes','no','b');
+Insert into java(quenum,questions,option1,option2,answer) values (4,'Runnable is','Method','Interface','b');
+Insert into java(quenum,questions,option1,option2,answer) values (5,'Which method is used to perform DML statements in JDBC?','executeupdate','executequery','a');
+Insert into java(quenum,questions,option1,option2,answer) values (6,'Java beans have no types','true','false','a');
+
+create table html(quenum number,questions varchar(1000),option1 varchar2(100),option2 varchar2(100),answer varchar2(100));
+Insert into html(quenum,questions,option1,option2,answer) values (1,'which of the following tag is used to mark a begining of paragraph?','&ltP&gt','&ltPH&gt','a');
+Insert into html(quenum,questions,option1,option2,answer) values (2,'From which tag descriptive list starts ?','&ltDE&gt','&ltDL&gt','b');
+Insert into html(quenum,questions,option1,option2,answer) values (3,'A much better approach to establish the base URL is to use','Base element','Head element','a');
+Insert into html(quenum,questions,option1,option2,answer) values (4,'Which of the tag is used to creates a number list?','&ltLI&gt','&ltLP&gt','a');
+Insert into html(quenum,questions,option1,option2,answer) values (5,'Main container for &ltTR&gt, &ltTD&gt and &ltTH&gt is','&ltTABLE&gt','&ltGROUP&gt','a');
+Insert into html(quenum,questions,option1,option2,answer) values (6,'The body tag usually used after','HEAD tag','EM tag','a');
