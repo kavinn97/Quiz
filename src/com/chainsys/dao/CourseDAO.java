@@ -1,10 +1,15 @@
-package com.chainys.controller;
+package com.chainsys.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import com.chainsys.model.C;
+import com.chainsys.model.Html;
+import com.chainsys.model.Java;
+import com.chainsys.util.ConnectionUtil;
 
 public class CourseDAO {
 	public ArrayList C(String course) throws SQLException {

@@ -13,6 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.chainsys.dao.CourseDAO;
+import com.chainsys.model.C;
+import com.chainsys.model.Html;
+import com.chainsys.model.Java;
+
 /**
  * Servlet implementation class CourseServlet
  */

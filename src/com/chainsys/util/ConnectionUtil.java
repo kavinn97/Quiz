@@ -1,4 +1,4 @@
-package com.chainys.controller;
+package com.chainsys.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

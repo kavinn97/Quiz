@@ -1,10 +1,12 @@
-package com.chainys.controller;
+package com.chainsys.dao;
 
 import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import com.chainsys.util.ConnectionUtil;
 
 public class ResultDAO {
 	public ArrayList Canswer() throws SQLException {

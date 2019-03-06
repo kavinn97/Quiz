@@ -1,21 +1,11 @@
-package com.chainys.controller;
+package com.chainsys.model;
 
-public class Java {
-	int number;
-
-	public int getNumber() {
-		return number;
-	}
-
-	public void setNumber(int number) {
-		this.number = number;
-	}
-
-	int quenum;
-	String questions;
-	String option1;
-	String option2;
-	String answer;
+public class Html {
+	private int quenum;
+	private String questions;
+	private String option1;
+	private String option2;
+	private String answer;
 
 	public int getQuenum() {
 		return quenum;

@@ -3,6 +3,7 @@ package com.chainys.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.chainsys.dao.MemberDAO;
+import com.chainsys.model.Members;
 
 /**
  * Servlet implementation class SignupServlet
@@ -42,13 +46,13 @@ public class SignupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
-		int age = Integer.parseInt(request.getParameter("age"));
+		LocalDate dob = LocalDate.parse(request.getParameter("dob"));
 		String gender = request.getParameter("gender");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		Members member = new Members();
 		member.setName(name);
-		member.setAge(age);
+		member.setDob(dob);
 		member.setGender(gender);
 		member.setEmail(email);
 		member.setPassword(password);

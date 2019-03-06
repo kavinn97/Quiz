@@ -1,9 +1,13 @@
-package com.chainys.controller;
+package com.chainsys.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import com.chainsys.model.Members;
+import com.chainsys.util.ConnectionUtil;
 
 public class MemberDAO {
 	public boolean existingUser(Members member) throws SQLException {
@@ -66,11 +70,11 @@ public class MemberDAO {
 		try {
 			Connection connection = ConnectionUtil.getConnection();
 			System.out.println(connection);
-			String sql = "insert into members(name,age,gender,email,password) values(?,?,?,?,?)";
+			String sql = "insert into members(name,dob,gender,email,password) values(?,?,?,?,?)";
 			PreparedStatement preparedStatement = connection
 					.prepareStatement(sql);
 			preparedStatement.setString(1, member.getName());
-			preparedStatement.setInt(2, member.getAge());
+			preparedStatement.setDate(2, Date.valueOf(member.getDob()));
 			preparedStatement.setString(3, member.getGender());
 			preparedStatement.setString(4, member.getEmail());
 			preparedStatement.setString(5, member.getPassword());

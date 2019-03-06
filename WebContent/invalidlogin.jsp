@@ -5,6 +5,47 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Invalid Login</title>
+<style>
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #3C37DC;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 15px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
 </head>
 <style>
 body {
@@ -34,15 +75,15 @@ width: 105%;
 			<td> <input type="password"
 			name="password" placehoder="enter password"></td>
 			</tr>
-		<tr>
-		<td>
-		<button type="reset">reset</button></td>
-		<td><button type="submit" style="background-color:lightblue; color:black;">submit</button></td>
 		</table>
+		<button type="submit" class="button" style="vertical-align:middle"><span>Submit </span></button>
+		
 		<table align="center">
 		<tr>
 		<td>
-		 Newuser??? <a href="signup.jsp">Signup!!!</a></td>
+		 <a href="signup.jsp" class="button" style="vertical-align:middle"><span>Signup</span></a></td>
+		 <td><td ><a href="forgetpassword.jsp" class="button" style="vertical-align:middle"><span>forgetpassword</span></a> </td>
+		 	</td>
 		 </tr>
 		 </table>
 	</form>

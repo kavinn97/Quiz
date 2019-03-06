@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.chainsys.dao.MemberDAO;
+import com.chainsys.model.Members;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -61,7 +64,6 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("email", email);
 
 				request.setAttribute("email", email);
-				// out.println();
 				RequestDispatcher rd = request
 						.getRequestDispatcher("course.jsp");
 				rd.forward(request, response);
