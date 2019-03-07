@@ -34,7 +34,6 @@ public class LogoutServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(false);
 		session.removeAttribute("email");
-
 		session.invalidate();
 
 		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");

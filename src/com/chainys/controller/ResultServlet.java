@@ -48,25 +48,22 @@ public class ResultServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		int row = (int) session.getAttribute("rows");
+
 		String cname = request.getParameter("cname");
-		
-		
 		ResultDAO dao = new ResultDAO();
 		int count = 0;
 		int max = row;
 		String temp;
 		PrintWriter out = response.getWriter();
-		ArrayList<String> list=null;
+		ArrayList<String> list = null;
 		try {
-			
-			if(cname.equalsIgnoreCase("c")){
-			list=dao.Canswer();
-			}
-			else if(cname.equalsIgnoreCase("java")){
-				list=dao.JavaAnswer();
-			}
-			else if(cname.equalsIgnoreCase("html")){
-				list=dao.HtmlAnswer();
+
+			if (cname.equalsIgnoreCase("c")) {
+				list = dao.Canswer();
+			} else if (cname.equalsIgnoreCase("java")) {
+				list = dao.JavaAnswer();
+			} else if (cname.equalsIgnoreCase("html")) {
+				list = dao.HtmlAnswer();
 			}
 			int i = 1;
 			for (String result : list) {
@@ -86,5 +83,4 @@ public class ResultServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("finalresult.jsp");
 		rd.forward(request, response);
 	}
-	}
-
+}

@@ -23,8 +23,8 @@ public class MemberDAO {
 
 			if (resultSet.next()) {
 
-				String checkUser = resultSet.getString(4);
-				String checkPass = resultSet.getString(5);
+				String checkUser = resultSet.getString(5);
+				String checkPass = resultSet.getString(6);
 				if ((checkUser.equalsIgnoreCase(member.getEmail()))
 						&& (checkPass.equals(member.getPassword()))) {
 					login = true;
@@ -36,6 +36,7 @@ public class MemberDAO {
 
 			e.printStackTrace();
 		}
+		ConnectionUtil.close(connection, preparedStatement, resultSet);
 		return login;
 	}
 
@@ -62,6 +63,7 @@ public class MemberDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		ConnectionUtil.close(connection, preparedStatement, resultSet);
 		return signup;
 	}
 
@@ -70,7 +72,7 @@ public class MemberDAO {
 		try {
 			Connection connection = ConnectionUtil.getConnection();
 			System.out.println(connection);
-			String sql = "insert into members(name,dob,gender,email,password) values(?,?,?,?,?)";
+			String sql = "insert into members(id,name,dob,gender,email,password) values(seq.nextval,?,?,?,?,?)";
 			PreparedStatement preparedStatement = connection
 					.prepareStatement(sql);
 			preparedStatement.setString(1, member.getName());
@@ -79,9 +81,9 @@ public class MemberDAO {
 			preparedStatement.setString(4, member.getEmail());
 			preparedStatement.setString(5, member.getPassword());
 
-			int rows = preparedStatement.executeUpdate();
-			System.out.println("Rows inserted: " + rows);
-			ConnectionUtil.close(connection, preparedStatement, null);
+			preparedStatement.executeUpdate();
+			// System.out.println("Rows inserted: " + rows);
+			ConnectionUtil.close(connection, preparedStatement, resultset);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

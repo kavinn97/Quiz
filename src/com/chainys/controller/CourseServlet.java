@@ -51,11 +51,12 @@ public class CourseServlet extends HttpServlet {
 		String course = request.getParameter("coursetype");
 		// PrintWriter out=response.getWriter();
 		// out.println(course);
-		
-//		HttpServletResponse httpResponse = null;
-//		httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-//		httpResponse.setHeader("Pragma", "no-cache"); 
-//		httpResponse.setDateHeader("Expires", 0);
+
+		// HttpServletResponse httpResponse = null;
+		// httpResponse.setHeader("Cache-Control",
+		// "no-cache, no-store, must-revalidate");
+		// httpResponse.setHeader("Pragma", "no-cache");
+		// httpResponse.setDateHeader("Expires", 0);
 		if (course.equalsIgnoreCase("c")) {
 			CourseDAO dao = new CourseDAO();
 			try {

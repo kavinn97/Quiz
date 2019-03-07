@@ -1,11 +1,18 @@
 create table members(
+id number ,
 name varchar2(32) not null,
-age number,
+dob date not null,
 gender varchar2(23),
-email varchar2(32) not null,
+email varchar2(32) not null unique,
 password varchar2(23) not null,
-constraint PK_email primary key (email)
+constraint PK_id primary key (id)
 );
+CREATE SEQUENCE seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 1000000
+cycle;
 
 CREATE table c(quenum number,questions varchar(1000),option1 varchar2(100),option2 varchar2(100),answer varchar2(100));
 Insert into c(quenum,questions,option1,option2,answer) values (1,'Is C is an Object Oriented Programming Language?','yes','no','b');
