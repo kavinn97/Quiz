@@ -1,5 +1,5 @@
 create table members(
-id number ,
+id number,
 name varchar2(32) not null,
 dob date not null,
 gender varchar2(23),
@@ -14,14 +14,28 @@ minvalue 1
 maxvalue 1000000
 cycle;
 
-CREATE table c(quenum number,questions varchar(1000),option1 varchar2(100),option2 varchar2(100),answer varchar2(100));
+CREATE table c(
+quenum number,
+questions varchar(1000) not null,
+option1 varchar2(100) not null,
+option2 varchar2(100) not null,
+answer varchar2(100) not null,
+constraint PK_quenum primary key (quenum)
+);
 Insert into c(quenum,questions,option1,option2,answer) values (1,'Is C is an Object Oriented Programming Language?','yes','no','b');
 Insert into c(quenum,questions,option1,option2,answer) values (2,'Is C is a Platform dependent?','yes','no','a');
 Insert into c(quenum,questions,option1,option2,answer) values (3,'Is any other language contains Pointers in it?','yes','no','b');
 Insert into c(quenum,questions,option1,option2,answer) values (4,'Which header file is used for mathematical calculations?','math.h','conio.h','a');
 Insert into c(quenum,questions,option1,option2,answer) values (5,'Is & is used to grt values to string?','yes','no','b');
 
-CREATE table java(quenum number,questions varchar(1000),option1 varchar2(100),option2 varchar2(100),answer varchar2(100));
+CREATE table java(
+quenum number,
+questions varchar(1000) not null,
+option1 varchar2(100) not null,
+option2 varchar2(100) not null,
+answer varchar2(100) not null,
+constraint PK_quenum1 primary key (quenum)
+);
 Insert into java(quenum,questions,option1,option2,answer) values (1,'Which class cannot be subclassed (or extended) in java?','Abstract class','final class','b');
 Insert into java(quenum,questions,option1,option2,answer) values (2,'Can we declare abstract static method?','yes','no','b');
 Insert into java(quenum,questions,option1,option2,answer) values (3,'Can we access private class outside the package?','yes','no','b');
@@ -29,7 +43,14 @@ Insert into java(quenum,questions,option1,option2,answer) values (4,'Runnable is
 Insert into java(quenum,questions,option1,option2,answer) values (5,'Which method is used to perform DML statements in JDBC?','executeupdate','executequery','a');
 Insert into java(quenum,questions,option1,option2,answer) values (6,'Java beans have no types','true','false','a');
 
-create table html(quenum number,questions varchar(1000),option1 varchar2(100),option2 varchar2(100),answer varchar2(100));
+CREATE table c(
+quenum number,
+questions varchar(1000) not null,
+option1 varchar2(100) not null,
+option2 varchar2(100) not null,
+answer varchar2(100) not null,
+constraint PK_quenum2 primary key (quenum)
+);
 Insert into html(quenum,questions,option1,option2,answer) values (1,'which of the following tag is used to mark a begining of paragraph?','&ltP&gt','&ltPH&gt','a');
 Insert into html(quenum,questions,option1,option2,answer) values (2,'From which tag descriptive list starts ?','&ltDE&gt','&ltDL&gt','b');
 Insert into html(quenum,questions,option1,option2,answer) values (3,'A much better approach to establish the base URL is to use','Base element','Head element','a');
