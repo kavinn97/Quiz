@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import com.chainsys.util.ConnectionUtil;
 
 public class ResultDAO {
-	public ArrayList Canswer() throws SQLException {
+	public ArrayList<String> cAnswer() throws SQLException {
 		Connection connection = ConnectionUtil.getConnection();
 		String sql = "SELECT answer from c";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		ResultSet resultSet = preparedStatement.executeQuery();
-		ArrayList<String> list = new ArrayList();
+		ArrayList<String> list = new ArrayList<String>();
 		while (resultSet.next()) {
 			list.add(resultSet.getString("answer"));
 		}
@@ -22,12 +22,12 @@ public class ResultDAO {
 		return list;
 	}
 
-	public ArrayList JavaAnswer() throws SQLException {
+	public ArrayList<String> javaAnswer() throws SQLException {
 		Connection connection = ConnectionUtil.getConnection();
 		String sql = "SELECT answer from java";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		ResultSet resultSet = preparedStatement.executeQuery();
-		ArrayList<String> list = new ArrayList();
+		ArrayList<String> list = new ArrayList<String>();
 		while (resultSet.next()) {
 			list.add(resultSet.getString("answer"));
 		}
@@ -35,12 +35,12 @@ public class ResultDAO {
 		return list;
 	}
 
-	public ArrayList HtmlAnswer() throws SQLException {
+	public ArrayList<String> htmlAnswer() throws SQLException {
 		Connection connection = ConnectionUtil.getConnection();
 		String sql = "SELECT answer from html";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		ResultSet resultSet = preparedStatement.executeQuery();
-		ArrayList<String> list = new ArrayList();
+		ArrayList<String> list = new ArrayList<String>();
 		while (resultSet.next()) {
 			list.add(resultSet.getString("answer"));
 		}

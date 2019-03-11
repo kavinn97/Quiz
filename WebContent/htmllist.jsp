@@ -69,9 +69,9 @@ width: 105%;
 				<tr>
 					<td>${showquestions.questions}</td>
 					<td><input type="radio" name=${showquestions.quenum }
-						value="a">${showquestions.option1 }</td>
+						value="a" required>${showquestions.option1 }</td>
 					<td><input type="radio" name=${showquestions.quenum }
-						value="b">${showquestions.option2}</td>
+						value="b" required>${showquestions.option2}</td>
 				</tr>
 			</c:forEach>
 		</table>

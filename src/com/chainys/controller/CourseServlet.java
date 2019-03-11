@@ -1,7 +1,6 @@
 package com.chainys.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -25,38 +24,10 @@ import com.chainsys.model.Java;
 public class CourseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public CourseServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String course = request.getParameter("coursetype");
-		// PrintWriter out=response.getWriter();
-		// out.println(course);
 
-		// HttpServletResponse httpResponse = null;
-		// httpResponse.setHeader("Cache-Control",
-		// "no-cache, no-store, must-revalidate");
-		// httpResponse.setHeader("Pragma", "no-cache");
-		// httpResponse.setDateHeader("Expires", 0);
 		if (course.equalsIgnoreCase("c")) {
 			CourseDAO dao = new CourseDAO();
 			try {
@@ -64,14 +35,14 @@ public class CourseServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("rows", rows);
 
-				ArrayList<C> clist = dao.C(course);
+				ArrayList<C> clist = dao.c(course);
 				request.setAttribute("C", clist);
 				RequestDispatcher rd = request
 						.getRequestDispatcher("clist.jsp");
 				rd.forward(request, response);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
+				throw new RuntimeException("Unable to print questions");
 			}
 		} else if (course.equalsIgnoreCase("java")) {
 			CourseDAO dao = new CourseDAO();
@@ -79,32 +50,30 @@ public class CourseServlet extends HttpServlet {
 				int rows = dao.Rows();
 				HttpSession session = request.getSession();
 				session.setAttribute("rows", rows);
-				ArrayList<Java> javalist = dao.Java(course);
+				ArrayList<Java> javalist = dao.java(course);
 				request.setAttribute("java", javalist);
 				RequestDispatcher rd = request
 						.getRequestDispatcher("javalist.jsp");
 				rd.forward(request, response);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
+				throw new RuntimeException("Unable to print questions");
 			}
-
 		} else if (course.equals("html")) {
 			CourseDAO dao = new CourseDAO();
 			try {
 				int rows = dao.Rows();
 				HttpSession session = request.getSession();
 				session.setAttribute("rows", rows);
-				ArrayList<Html> htmllist = dao.Html(course);
+				ArrayList<Html> htmllist = dao.html(course);
 				request.setAttribute("html", htmllist);
 				RequestDispatcher rd = request
 						.getRequestDispatcher("htmllist.jsp");
 				rd.forward(request, response);
 			} catch (SQLException e) {
-
 				e.printStackTrace();
+				throw new RuntimeException("Unable to print questions");
 			}
 		}
-
 	}
 }

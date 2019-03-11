@@ -5,14 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import com.chainsys.model.C;
 import com.chainsys.model.Html;
 import com.chainsys.model.Java;
 import com.chainsys.util.ConnectionUtil;
 
 public class CourseDAO {
-	public ArrayList C(String course) throws SQLException {
+	public ArrayList<C> c(String course) throws SQLException {
 		Connection connection = ConnectionUtil.getConnection();
 		String sql = "select * from c";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -30,12 +29,10 @@ public class CourseDAO {
 		return clist;
 	}
 
-	public ArrayList Java(String course) throws SQLException {
+	public ArrayList<Java> java(String course) throws SQLException {
 		Connection connection = ConnectionUtil.getConnection();
 		String sql = "select * from  java";
-		// String sql1="select count(*) from c";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
-		// preparedStatement = connection.prepareStatement(sql1);
 		ResultSet resultSet = preparedStatement.executeQuery();
 		ArrayList<Java> javalist = new ArrayList<Java>();
 		while (resultSet.next()) {
@@ -50,7 +47,7 @@ public class CourseDAO {
 		return javalist;
 	}
 
-	public ArrayList Html(String course) throws SQLException {
+	public ArrayList<Html> html(String course) throws SQLException {
 		Connection connection = ConnectionUtil.getConnection();
 		String sql = "select * from  html";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -78,5 +75,4 @@ public class CourseDAO {
 		ConnectionUtil.close(connection, preparedStatement, resultSet);
 		return rows;
 	}
-
 }

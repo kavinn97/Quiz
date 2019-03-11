@@ -20,9 +20,7 @@ public class MemberDAO {
 			preparedStatement.setString(1, member.getEmail());
 			preparedStatement.setString(2, member.getPassword());
 			resultSet = preparedStatement.executeQuery();
-
 			if (resultSet.next()) {
-
 				String checkUser = resultSet.getString(5);
 				String checkPass = resultSet.getString(6);
 				if ((checkUser.equalsIgnoreCase(member.getEmail()))
@@ -33,8 +31,8 @@ public class MemberDAO {
 				}
 			}
 		} catch (Exception e) {
-
 			e.printStackTrace();
+			throw new RuntimeException("Unable to search the matching record");
 		}
 		ConnectionUtil.close(connection, preparedStatement, resultSet);
 		return login;
@@ -46,10 +44,8 @@ public class MemberDAO {
 		Connection connection = ConnectionUtil.getConnection();
 		String sql = "select email from members where email=?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
 		preparedStatement.setString(1, member.getEmail());
 		resultSet = preparedStatement.executeQuery();
-
 		try {
 			if (resultSet.next()) {
 				signup = false;
@@ -59,7 +55,6 @@ public class MemberDAO {
 				signup = true;
 				return signup;
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -80,14 +75,11 @@ public class MemberDAO {
 			preparedStatement.setString(3, member.getGender());
 			preparedStatement.setString(4, member.getEmail());
 			preparedStatement.setString(5, member.getPassword());
-
 			preparedStatement.executeUpdate();
-			// System.out.println("Rows inserted: " + rows);
 			ConnectionUtil.close(connection, preparedStatement, resultset);
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new RuntimeException("Unable to add membersS");
 		}
-
 	}
-
 }

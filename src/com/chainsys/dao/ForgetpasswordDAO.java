@@ -21,7 +21,6 @@ public class ForgetpasswordDAO {
 		preparedStatement.setDate(2, Date.valueOf(dob));
 		resultSet = preparedStatement.executeQuery();
 		while (resultSet.next()) {
-
 			String sql1 = "update members set password=? where email=?";
 			PreparedStatement preparedStatement1 = connection
 					.prepareStatement(sql1);

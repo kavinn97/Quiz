@@ -1,7 +1,6 @@
 package com.chainys.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -22,61 +21,41 @@ import com.chainsys.model.Members;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public LoginServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-		PrintWriter out = response.getWriter();
-		Members member = new Members();
-		// out.println(email);
-		// out.println(password);
-		member.setEmail(email);
-		member.setPassword(password);
-		MemberDAO dao = new MemberDAO();
+		if (request.getParameter("email").length() > 2) {
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
 
-		try {
-			boolean b = dao.existingUser(member);
-			if (b) {
+			Members member = new Members();
+			member.setEmail(email);
+			member.setPassword(password);
+			MemberDAO dao = new MemberDAO();
 
-				HttpSession session = request.getSession();
-				session.setAttribute("email", email);
+			try {
+				boolean b = dao.existingUser(member);
+				if (b) {
 
-				request.setAttribute("email", email);
-				RequestDispatcher rd = request
-						.getRequestDispatcher("course.jsp");
-				rd.forward(request, response);
-			} else {
-				RequestDispatcher rd = request
-						.getRequestDispatcher("invalidlogin.jsp");
-				rd.forward(request, response);
+					HttpSession session = request.getSession();
+					session.setAttribute("email", email);
+
+					request.setAttribute("email", email);
+					RequestDispatcher rd = request
+							.getRequestDispatcher("course.jsp");
+					rd.forward(request, response);
+				} else {
+					request.setAttribute("message", "!!!Invalid Login!!!");
+					RequestDispatcher rd = request
+							.getRequestDispatcher("login.jsp");
+					rd.forward(request, response);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException("Unable to get the value");
 			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} else {
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+			rd.include(request, response);
 		}
-
 	}
-
 }

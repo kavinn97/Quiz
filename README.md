@@ -1,5 +1,6 @@
 # Quiz
 
+This project is for checking the knowledge of the person on the particular language by using the quiz.
 a) Procedures to create table in sql.
 
 <li>create a table to store the details of a member</li>
