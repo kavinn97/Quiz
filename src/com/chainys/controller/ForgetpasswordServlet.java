@@ -35,5 +35,4 @@ public class ForgetpasswordServlet extends HttpServlet {
 			throw new RuntimeException("Unable to get the value");
 		}
 	}
-
 }

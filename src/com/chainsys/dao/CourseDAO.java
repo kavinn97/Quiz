@@ -4,19 +4,24 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.*;
 import com.chainsys.model.C;
 import com.chainsys.model.Html;
 import com.chainsys.model.Java;
 import com.chainsys.util.ConnectionUtil;
 
 public class CourseDAO {
-	public ArrayList<C> c(String course) throws SQLException {
+	/**
+	 * @param course
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<C> c(String course) throws SQLException {
 		Connection connection = ConnectionUtil.getConnection();
 		String sql = "select * from c";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		ResultSet resultSet = preparedStatement.executeQuery();
-		ArrayList<C> clist = new ArrayList<C>();
+		List<C> clist = new ArrayList<C>();
 		while (resultSet.next()) {
 			C cobj = new C();
 			cobj.setQuenum(resultSet.getInt("quenum"));

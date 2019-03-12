@@ -2,7 +2,7 @@ package com.chainys.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,7 +27,6 @@ public class CourseServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String course = request.getParameter("coursetype");
-
 		if (course.equalsIgnoreCase("c")) {
 			CourseDAO dao = new CourseDAO();
 			try {
@@ -35,7 +34,7 @@ public class CourseServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("rows", rows);
 
-				ArrayList<C> clist = dao.c(course);
+				List<C> clist = dao.c(course);
 				request.setAttribute("C", clist);
 				RequestDispatcher rd = request
 						.getRequestDispatcher("clist.jsp");
@@ -50,7 +49,7 @@ public class CourseServlet extends HttpServlet {
 				int rows = dao.Rows();
 				HttpSession session = request.getSession();
 				session.setAttribute("rows", rows);
-				ArrayList<Java> javalist = dao.java(course);
+				List<Java> javalist = dao.java(course);
 				request.setAttribute("java", javalist);
 				RequestDispatcher rd = request
 						.getRequestDispatcher("javalist.jsp");
@@ -65,7 +64,7 @@ public class CourseServlet extends HttpServlet {
 				int rows = dao.Rows();
 				HttpSession session = request.getSession();
 				session.setAttribute("rows", rows);
-				ArrayList<Html> htmllist = dao.html(course);
+				List<Html> htmllist = dao.html(course);
 				request.setAttribute("html", htmllist);
 				RequestDispatcher rd = request
 						.getRequestDispatcher("htmllist.jsp");
