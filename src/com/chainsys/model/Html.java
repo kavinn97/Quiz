@@ -47,4 +47,10 @@ public class Html {
 		this.answer = answer;
 	}
 
+	@Override
+	public String toString() {
+		return "Html [quenum=" + quenum + ", questions=" + questions
+				+ ", option1=" + option1 + ", option2=" + option2 + ", answer="
+				+ answer + "]";
+	}
 }

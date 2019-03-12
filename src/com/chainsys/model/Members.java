@@ -48,4 +48,10 @@ public class Members {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		return "Members [name=" + name + ", dob=" + dob + ", gender=" + gender
+				+ ", email=" + email + ", password=" + password + "]";
+	}
 }

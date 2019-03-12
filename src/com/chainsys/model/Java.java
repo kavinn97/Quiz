@@ -47,4 +47,10 @@ public class Java {
 		this.answer = answer;
 	}
 
+	@Override
+	public String toString() {
+		return "Java [quenum=" + quenum + ", questions=" + questions
+				+ ", option1=" + option1 + ", option2=" + option2 + ", answer="
+				+ answer + "]";
+	}
 }

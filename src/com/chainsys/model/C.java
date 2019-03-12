@@ -1,13 +1,6 @@
 package com.chainsys.model;
 
 public class C {
-	@Override
-	public String toString() {
-		return "C [quenum=" + quenum + ", questions=" + questions
-				+ ", option1=" + option1 + ", option2=" + option2 + ", answer="
-				+ answer + "]";
-	}
-
 	private int quenum;
 	private String questions;
 	private String option1;
@@ -54,4 +47,10 @@ public class C {
 		this.answer = answer;
 	}
 
+	@Override
+	public String toString() {
+		return "C [quenum=" + quenum + ", questions=" + questions
+				+ ", option1=" + option1 + ", option2=" + option2 + ", answer="
+				+ answer + "]";
+	}
 }
